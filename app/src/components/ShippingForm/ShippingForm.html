@@ -1,4 +1,4 @@
-<v-form>
+<v-form @submit.prevent="calculateShipping()">
   <GoogleMapAutocomplete
     placeholder="Search an address"
     @place_changed="setPlace"
@@ -14,4 +14,8 @@
       :position="placePosition"
       />
   </GmapMap>
+  <v-btn
+    color="info"
+    type="submit"
+  >Submit</v-btn>
 </v-form>

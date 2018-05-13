@@ -9,7 +9,10 @@ import GoogleMapAutocomplete from '@/components/GoogleMapAutocomplete';
   },
 })
 export default class ShippingForm extends Vue {
-  place = null;
+
+  get place() {
+    return this.$store.getters.place;
+  }
 
   get map() {
     const formMap = mapDefaults;
@@ -27,6 +30,11 @@ export default class ShippingForm extends Vue {
   }
 
   setPlace(place) {
-    this.place = place;
+    this.$store.dispatch('setPlace', { place });
+  }
+
+  calculateShipping() {
+    debugger;
+    console.log("Calc shipping");
   }
 }

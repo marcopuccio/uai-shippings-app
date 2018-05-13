@@ -7,6 +7,7 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 
 import AppRoot from '@/components/AppRoot';
 import { settings as mapSettings } from '@/services/maps';
+import store from '@/store';
 
 Vue.config.productionTip = false;
 Vue.use(Vuetify);
@@ -15,6 +16,7 @@ Vue.use(VueGoogleMaps, mapSettings);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   components: { AppRoot },
   template: '<AppRoot />',
 });
