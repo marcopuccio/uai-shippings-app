@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import AppHeader from '@/components/AppHeader';
+import HeaderToolbar from '@/components/HeaderToolbar';
 
 @Component({
   components: {
-    AppHeader,
+    HeaderToolbar,
   },
 })
 export default class AppRoot extends Vue {
