@@ -1,8 +1,13 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { defaults as mapDefaults } from '@/services/maps';
+import GoogleMapAutocomplete from '@/components/GoogleMapAutocomplete';
 
-@Component({})
+@Component({
+  components: {
+    GoogleMapAutocomplete,
+  },
+})
 export default class ShippingForm extends Vue {
   place = null;
 

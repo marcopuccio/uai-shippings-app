@@ -1,7 +1,8 @@
 <v-form>
-  <GmapAutocomplete
+  <GoogleMapAutocomplete
+    placeholder="Search an address"
     @place_changed="setPlace"
-  ></GmapAutocomplete>
+  ></GoogleMapAutocomplete>
   <GmapMap
     :center="map.center"
     :zoom="map.zoom"
