@@ -11,4 +11,7 @@ import Shipping from '@/components/Shipping';
   },
 })
 export default class AppRoot extends Vue {
+  created() {
+    this.$store.dispatch('fetchShippingsApi');
+  }
 }

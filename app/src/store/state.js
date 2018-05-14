@@ -1,7 +1,7 @@
 export default {
   shippingsApi: {
-    maxDistance: 100,
-    kmPrice: 50,
+    maxDistance: 0,
+    kmPrice: 0,
   },
   place: null,
 };
