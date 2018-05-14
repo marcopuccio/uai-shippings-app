@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import { mapGetters } from 'vuex';
+
 import Component from 'vue-class-component';
 import { defaults as mapDefaults } from '@/services/maps';
 import GoogleMapAutocomplete from '@/components/GoogleMapAutocomplete';
@@ -7,34 +9,22 @@ import GoogleMapAutocomplete from '@/components/GoogleMapAutocomplete';
   components: {
     GoogleMapAutocomplete,
   },
+  computed: mapGetters([
+    'place',
+    'placePosition',
+  ]),
 })
 export default class ShippingForm extends Vue {
 
-  get place() {
-    return this.$store.getters.place;
-  }
-
   get map() {
-    const formMap = mapDefaults;
-    if (this.place) {
-      formMap.center = this.placePosition;
-    }
-    return formMap;
-  }
-
-  get placePosition() {
     return {
-      lat: this.place.geometry.location.lat(),
-      lng: this.place.geometry.location.lng(),
+      center: this.place ? this.placePosition : mapDefaults.center,
+      zoom: mapDefaults.zoom,
+      type: mapDefaults.type,
     };
   }
 
   setPlace(place) {
     this.$store.dispatch('setPlace', { place });
-  }
-
-  calculateShipping() {
-    debugger;
-    console.log("Calc shipping");
   }
 }

@@ -3,11 +3,8 @@
     <h3 class="headline mb-0">Summary</h3>
   </v-card-title>
   <v-card-text class="summaryDetail">
-    <p><span class="summaryDetailItem">Distance</span>: 10km</p>
-    <p><span class="summaryDetailItem">Kilometer price:</span> $50</p>
-    <p><span class="summaryDetailItem">Total</span>: $500</p>
+    <p><span class="summaryDetailItem">Distance</span>: {{ distance }}km</p>
+    <p><span class="summaryDetailItem">Kilometer price:</span> ${{ kmPrice }}</p>
+    <h4 class="headline"><span class="summaryDetailItem">Total</span>: ${{ shippingPrice }}</h4>
   </v-card-text>
-  <v-card-actions>
-    <v-btn flat color="orange">Reset</v-btn>
-  </v-card-actions>
 </v-card>
