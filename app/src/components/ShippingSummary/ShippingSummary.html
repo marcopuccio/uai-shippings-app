@@ -5,6 +5,11 @@
   <v-card-text class="summaryDetail">
     <p><span class="summaryDetailItem">Distance</span>: {{ distance }}km</p>
     <p><span class="summaryDetailItem">Kilometer price:</span> ${{ kmPrice }}</p>
-    <h4 class="headline"><span class="summaryDetailItem">Total</span>: ${{ shippingPrice }}</h4>
+    <h4 class="headline" v-if="!cantShip">
+      <span class="summaryDetailItem">Total</span>: ${{ shippingPrice }}
+    </h4>
+    <div v-else>
+      <p class="errorMessage">Maximum distance exceeded</p>
+    </div>
   </v-card-text>
 </v-card>

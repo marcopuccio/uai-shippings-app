@@ -13,4 +13,8 @@ export default class ShippingForm extends Vue {
   get kmPrice() {
     return this.shippingsApi.kmPrice;
   }
+
+  get cantShip() {
+    return this.distance > this.shippingsApi.maxDistance;
+  }
 }
