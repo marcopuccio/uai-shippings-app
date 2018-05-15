@@ -25,6 +25,7 @@ export default class ShippingForm extends Vue {
   }
 
   setPlace(place) {
+    if (!place.geometry) return;
     this.$store.dispatch('setPlace', { place });
   }
 }
