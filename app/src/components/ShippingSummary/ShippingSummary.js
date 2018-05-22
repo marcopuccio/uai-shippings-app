@@ -17,6 +17,15 @@ export default class ShippingForm extends Vue {
     fullWidth: true,
     min: moment().format(),
     headerColor: 'red darken-3',
+    reactive: true,
+  }
+
+  get selectedDate() {
+    return this.shipping.date;
+  }
+
+  set selectedDate(date) {
+    this.$store.dispatch('setShippingDate', { date });
   }
 
   get kmPrice() {
@@ -37,10 +46,6 @@ export default class ShippingForm extends Vue {
 
   get isValidShipping() {
     return this.shipping.date && this.shipping.turn;
-  }
-
-  selectDate(date) {
-    this.$store.dispatch('setShippingDate', { date });
   }
 
   selectTurn(turn) {

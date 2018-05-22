@@ -8,9 +8,10 @@
     <div v-if="canSelectDate">
       <p class="summaryDetailItem">Date:</p>
       <v-date-picker
-        @input="selectDate($event)"
+        v-model="selectedDate"
         :full-width="datePicker.fullWidth"
         :min="datePicker.min"
+        :reactive="datePicker.reactive"
         :header-color="datePicker.headerColor"
       ></v-date-picker>
     </div>
