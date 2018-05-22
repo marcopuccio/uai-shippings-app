@@ -28,8 +28,8 @@ namespace api.Controllers
         {
             Dictionary<string, ISettings> defaults = new Dictionary<string, ISettings>
             {
-                { "Shippings", shippingSettings.Value },
-                { "Maps", mapsSettings.Value }
+                { "shippings", shippingSettings.Value },
+                { "maps", mapsSettings.Value }
             };
             return Json(defaults);
         }
