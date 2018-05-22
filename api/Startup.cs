@@ -32,6 +32,7 @@ namespace api
                 );
             });
             services.Configure<ShippingSettings>(Configuration.GetSection("Shippings"));
+            services.Configure<MapsSettings>(Configuration.GetSection("Maps"));
             services.AddMvc();
         }
 

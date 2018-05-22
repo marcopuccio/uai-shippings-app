@@ -13,23 +13,25 @@ namespace api.Controllers
     public class ShippingsController : Controller
     {
 
-        private readonly IOptions<ShippingSettings> _shippingSettings;
+        private readonly IOptions<ShippingSettings> shippingSettings;
+        private readonly IOptions<MapsSettings> mapsSettings;
 
-        public ShippingsController(IOptions<ShippingSettings> ss)
+        public ShippingsController(IOptions<ShippingSettings> ss, IOptions<MapsSettings> ms)
         {
-            _shippingSettings = ss;
+            shippingSettings = ss;
+            mapsSettings = ms;
         }
 
         // GET api/shippings
         [HttpGet]
         public JsonResult Get()
         {
-            //   Dictionary<string, int> defaults = new Dictionary<string, int>
-            //   {
-            //       { "maxDistance", 100 },
-            //       { "kmPrice", 50 }
-            //   };
-            return Json(_shippingSettings.Value);
+            Dictionary<string, ISettings> defaults = new Dictionary<string, ISettings>
+            {
+                { "Shippings", shippingSettings.Value },
+                { "Maps", mapsSettings.Value }
+            };
+            return Json(defaults);
         }
     }
 }
