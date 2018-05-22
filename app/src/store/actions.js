@@ -7,6 +7,12 @@ export default {
   setPlace({ commit }, payload) {
     commit('setPlace', payload);
   },
+  setShippingDate({ commit }, { date }) {
+    commit('setShippingDate', { date });
+  },
+  setShippingTurn({ commit }, { turn }) {
+    commit('setShippingTurn', { turn });
+  },
   fetchShippingsApi({ commit }) {
     axios.get(SHIPPINGS_API_URL)
       .then((response) => {

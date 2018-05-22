@@ -9,18 +9,13 @@ import moment from '@/services/moment';
     'distance',
     'shippingsApi',
     'shippingPrice',
+    'shipping',
   ]),
 })
 export default class ShippingForm extends Vue {
-  shipment = {
-    date: null,
-    turn: null,
-  };
-
   datePicker = {
     fullWidth: true,
     min: moment().format(),
-    reactive: true,
     headerColor: 'red darken-3',
   }
 
@@ -41,6 +36,14 @@ export default class ShippingForm extends Vue {
   }
 
   get isValidShipping() {
-    return this.shipment.date && this.shipment.turn;
+    return this.shipping.date && this.shipping.turn;
+  }
+
+  selectDate(date) {
+    this.$store.dispatch('setShippingDate', { date });
+  }
+
+  selectTurn(turn) {
+    this.$store.dispatch('setShippingTurn', { turn });
   }
 }

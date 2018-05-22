@@ -3,6 +3,10 @@ export default {
     maxDistance: 0,
     kmPrice: 0,
   },
+  shipping: {
+    date: null,
+    turn: null,
+  },
   maps: {
     center: {
       lat: 0,

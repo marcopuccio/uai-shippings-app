@@ -10,6 +10,9 @@ export default {
   place(state) {
     return state.place;
   },
+  shipping(state) {
+    return state.shipping;
+  },
   placePosition(state, getters) {
     return getters.place ? {
       lat: getters.place.geometry.location.lat(),

@@ -8,25 +8,24 @@
     <div v-if="canSelectDate">
       <p class="summaryDetailItem">Date:</p>
       <v-date-picker
+        @input="selectDate($event)"
         :full-width="datePicker.fullWidth"
         :min="datePicker.min"
-        :reactive="datePicker.reactive"
         :header-color="datePicker.headerColor"
-        v-model="shipment.date"
       ></v-date-picker>
     </div>
-    <div v-if="shipment.date">
+    <div v-if="shipping.date">
       <p class="summaryDetailItem turn">Turn:</p>
-      <v-radio-group v-model="shipment.turn">
+      <v-radio-group @change="selectTurn($event)">
         <v-radio
           label="Morning"
           value="morning"
-          :disabled="!shipment.date"
+          :disabled="!shipping.date"
         ></v-radio>
         <v-radio
           label="Afternoon"
           value="afternoon"
-          :disabled="!shipment.date"
+          :disabled="!shipping.date"
         ></v-radio>
       </v-radio-group>
     </div>
