@@ -5,11 +5,39 @@
   <v-card-text class="summaryDetail">
     <p><span class="summaryDetailItem">Distance</span>: {{ distance }}km</p>
     <p><span class="summaryDetailItem">Kilometer price:</span> ${{ kmPrice }}</p>
-    <h4 class="headline" v-if="!cantShip">
+    <div v-if="canSelectDate">
+      <p class="summaryDetailItem">Date:</p>
+      <v-date-picker
+        :full-width="datePicker.fullWidth"
+        :min="datePicker.min"
+        :reactive="datePicker.reactive"
+        :header-color="datePicker.headerColor"
+        v-model="shipment.date"
+      ></v-date-picker>
+    </div>
+    <div v-if="shipment.date">
+      <p class="summaryDetailItem turn">Turn:</p>
+      <v-radio-group v-model="shipment.turn">
+        <v-radio
+          label="Morning"
+          value="morning"
+          :disabled="!shipment.date"
+        ></v-radio>
+        <v-radio
+          label="Afternoon"
+          value="afternoon"
+          :disabled="!shipment.date"
+        ></v-radio>
+      </v-radio-group>
+    </div>
+
+
+    <h4 class="headline" v-if="isValidShipping">
       <span class="summaryDetailItem">Total</span>: ${{ shippingPrice }}
     </h4>
-    <div v-else>
+    <div v-else-if="hasMaxDistance">
       <p class="errorMessage">Maximum distance exceeded</p>
     </div>
+
   </v-card-text>
 </v-card>
