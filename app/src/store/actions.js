@@ -10,8 +10,8 @@ export default {
   fetchShippingsApi({ commit }) {
     axios.get(SHIPPINGS_API_URL)
       .then((response) => {
-        const shippingsApi = response.data;
-        commit('loadShippinsgApi', { shippingsApi });
+        const resData = response.data;
+        commit('loadShippinsgApi', resData);
       }, (error) => {
         // eslint-disable-next-line
         console.error(error);

@@ -2,7 +2,6 @@ import Vue from 'vue';
 import { mapGetters } from 'vuex';
 
 import Component from 'vue-class-component';
-import { defaults as mapDefaults } from '@/services/maps';
 import GoogleMapAutocomplete from '@/components/GoogleMapAutocomplete';
 
 @Component({
@@ -12,15 +11,16 @@ import GoogleMapAutocomplete from '@/components/GoogleMapAutocomplete';
   computed: mapGetters([
     'place',
     'placePosition',
+    'maps',
   ]),
 })
 export default class ShippingForm extends Vue {
 
   get map() {
     return {
-      center: this.place ? this.placePosition : mapDefaults.center,
-      zoom: mapDefaults.zoom,
-      type: mapDefaults.type,
+      center: this.place ? this.placePosition : this.maps.center,
+      zoom: this.maps.zoom,
+      type: this.maps.type,
     };
   }
 

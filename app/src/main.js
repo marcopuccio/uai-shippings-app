@@ -6,7 +6,7 @@ import Vuetify from 'vuetify';
 import * as VueGoogleMaps from 'vue2-google-maps';
 
 import AppRoot from '@/components/AppRoot';
-import { settings as mapSettings } from '@/services/maps';
+import mapSettings from '@/services/maps';
 import store from '@/store';
 
 Vue.config.productionTip = false;

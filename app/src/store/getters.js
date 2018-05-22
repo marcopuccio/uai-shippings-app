@@ -1,9 +1,11 @@
 import getDistance from '@/services/haversine';
-import { defaults as mapDefaults } from '@/services/maps';
 
 export default {
   shippingsApi(state) {
     return state.shippingsApi;
+  },
+  maps(state) {
+    return state.maps;
   },
   place(state) {
     return state.place;
@@ -12,10 +14,10 @@ export default {
     return getters.place ? {
       lat: getters.place.geometry.location.lat(),
       lng: getters.place.geometry.location.lng(),
-    } : mapDefaults.center;
+    } : state.maps.center;
   },
   distance(state, getters) {
-    const distance = getDistance(mapDefaults.center, getters.placePosition);
+    const distance = getDistance(state.maps.center, getters.placePosition);
     const kmDistance = Math.round((distance / 1000) * 100) / 100;
     return kmDistance;
   },

@@ -2,7 +2,8 @@ export default {
   setPlace(state, { place }) {
     state.place = place;
   },
-  loadShippinsgApi(state, { shippingsApi }) {
-    state.shippingsApi = shippingsApi;
+  loadShippinsgApi(state, { shippings, maps }) {
+    state.shippingsApi = shippings;
+    state.maps = maps;
   },
 };
